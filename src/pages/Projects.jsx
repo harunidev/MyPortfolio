@@ -8,14 +8,14 @@ export default function Projects() {
       description: "A desktop-based hotel reservation system built in Java. Features include customer registration, room booking, availability tracking, and check-in/check-out flow.",
       technologies: ["Java", "OOP", "Swing"],
       image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      link: "https://github.com/yourusername/hotel-management"
+      link: "https://github.com/harunidev/HotelManagementSystem"
     },
     {
       title: "Airline Reservation System",
       description: "A flight reservation platform that allows users to view available routes, select flights, and purchase tickets via a web-based interface.",
       technologies: ["ASP.NET MVC", "HTML", "CSS", "JavaScript"],
       image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80",
-      link: "https://github.com/yourusername/airline-reservation"
+      link: "https://github.com/harunidev/AirlineReservationSystem-with-ASPNETn"
     },
     {
       title: "Weather App with API Integration",
@@ -29,7 +29,7 @@ export default function Projects() {
       description: "A collection of three CLI-based games: Synonym Match, Movie Guess, and Number Prediction. Developed using object-oriented programming principles.",
       technologies: ["C++", "OOP"],
       image: "https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      link: "https://github.com/yourusername/game-project"
+      link: "https://github.com/harunidev/GameProject"
     },
     {
       title: "Pomodoro Productivity App – AquaFocus",
@@ -43,14 +43,8 @@ export default function Projects() {
         "Built responsive animations (coral reef, marine creatures)",
         "Connected AI microservice for personalized feedback"
       ]
-    },
-    {
-      title: "AI Insight Engine",
-      description: "A microservice that processes user session data to generate motivational study tips using AI. It clusters user behavior and dynamically constructs prompts to fetch AI-generated feedback.",
-      technologies: ["Python", "FastAPI", "K-Means Clustering", "Gemini API"],
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      link: "https://github.com/yourusername/ai-insight-engine"
     }
+  
   ];
 
   return (
