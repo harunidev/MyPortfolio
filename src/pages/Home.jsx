@@ -54,7 +54,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              Java Developer | RPA Enthusiast | Backend Engineer
+              Java Developer | Backend Engineer
             </motion.h2>
             <motion.p 
               className="text-gray-900 dark:text-gray-400 text-lg max-w-2xl mx-auto mb-12"
