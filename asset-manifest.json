@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/harunidev/MyPortfolio/static/css/main.2b1163fc.css",
+    "main.js": "/harunidev/MyPortfolio/static/js/main.5bd9da3b.js",
+    "static/js/453.acca0757.chunk.js": "/harunidev/MyPortfolio/static/js/453.acca0757.chunk.js",
+    "index.html": "/harunidev/MyPortfolio/index.html",
+    "main.2b1163fc.css.map": "/harunidev/MyPortfolio/static/css/main.2b1163fc.css.map",
+    "main.5bd9da3b.js.map": "/harunidev/MyPortfolio/static/js/main.5bd9da3b.js.map",
+    "453.acca0757.chunk.js.map": "/harunidev/MyPortfolio/static/js/453.acca0757.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2b1163fc.css",
+    "static/js/main.5bd9da3b.js"
+  ]
+}
