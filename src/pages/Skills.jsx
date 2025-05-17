@@ -10,8 +10,9 @@ export default function Skills() {
       skills: [
         { name: "Java", level: 5, details: "Spring Boot, Hibernate, JPA" },
         { name: "Python", level: 4, details: "Django, Flask, FastAPI" },
+        { name: "C/C++", level: 4, details: "OOP, Data Structures, Algorithms" },
         { name: "Node.js", level: 4, details: "Express.js, REST APIs" },
-        { name: "SQL", level: 5, details: "MySQL, PostgreSQL, Oracle" }
+
       ]
     },
     {
@@ -19,10 +20,11 @@ export default function Skills() {
       icon: "fas fa-code",
       color: "#10B981",
       skills: [
-        { name: "React", level: 4, details: "Hooks, Context API, Redux" },
-        { name: "JavaScript", level: 5, details: "ES6+, TypeScript" },
+        { name: "Flutter", level: 4, details: "Dart, Flutter, Flutter Web" },
+        { name: "ASP.Net MVC", level: 5, details: "C#, ASP.Net MVC, Entity Framework" },
         { name: "HTML/CSS", level: 5, details: "Tailwind CSS, SASS" },
-        { name: "UI/UX", level: 4, details: "Responsive Design, Material UI" }
+        { name: "UI/UX", level: 4, details: "Responsive Design, Material UI" },
+        { name: "JavaScript", level: 5, details: "ES6+, TypeScript, React" },
       ]
     },
     {
@@ -37,16 +39,16 @@ export default function Skills() {
       ]
     },
     {
-      name: "RPA & Automation",
-      icon: "fas fa-robot",
-      color: "#8B5CF6",
+      name: "Database Management",
+      icon: "fas fa-tools",
+      color: "#F59E0B",
       skills: [
-        { name: "UiPath", level: 5, details: "Studio, Orchestrator" },
-        { name: "Blue Prism", level: 4, details: "Process Automation" },
-        { name: "Power Automate", level: 4, details: "Microsoft Flow" },
-        { name: "Automation Testing", level: 4, details: "Selenium, TestNG" }
+        { name: "MySQL", level: 5, details: "MySQL, PostgreSQL, Oracle" },
+        { name: "MongoDB", level: 4, details: "MongoDB, NoSQL" },
+        { name: "Firebase", level: 3, details: "Firebase, Realtime Database" },
+        { name: "MS SQL", level: 5, details: "MSSQL, SQL Server, SQL" }
       ]
-    }
+    },
   ];
 
   return (
