@@ -12,7 +12,6 @@ export default function Skills() {
         { name: "Python", level: 4, details: "Django, Flask, FastAPI" },
         { name: "C/C++", level: 4, details: "OOP, Data Structures, Algorithms" },
         { name: "Node.js", level: 4, details: "Express.js, REST APIs" },
-
       ]
     },
     {
