@@ -15,15 +15,8 @@ export default function About() {
             <span role="img" aria-label="About">💬</span> About Me
           </h1>
           <p className="text-gray-900 dark:text-gray-300 text-lg leading-relaxed whitespace-pre-line">
-Hello! I'm Harun Işık, a Computer Engineering student at Istanbul Kültür University and a passionate developer specialized in Java backend development, automation systems, and real-time mobile applications. I am currently working as a Java Developer Intern at Saya Holding, where I actively contribute to backend architecture and robotic process automation (RPA) initiatives.
-
-Over the past few years, I've built a solid technical foundation through academic studies, internships, and project-based work. I enjoy turning complex ideas into clean, efficient, and scalable solutions. Whether it's designing RESTful APIs using Spring Boot, building mobile apps with Flutter, or implementing real-time socket-based systems, I strive to build tools that are both functional and user-focused.
-
-One of my most impactful experiences has been co-leading the AquaFocus project — a gamified Pomodoro productivity app developed with Flutter and powered by real-time synchronization using Socket.IO. In this project, I was responsible for designing and implementing the entire mobile UI, integrating AI-powered feedback systems, and ensuring seamless communication between frontend and backend services. The system also incorporated AI microservices using Python and FastAPI, which analyzed user session data and delivered personalized productivity advice.
-
-Beyond my technical skills, I'm a highly adaptive team player who thrives in collaborative environments. I value clear communication, documentation, and continuous learning. I also have experience working with agile methodologies, version control (Git), and modern dev tools such as Postman, MySQL Workbench, and Android Studio.
-
-My long-term goal is to become a well-rounded backend engineer with a strong focus on automation, system scalability, and developer experience. I am constantly looking for opportunities to grow—both technically and professionally—by contributing to innovative, real-world projects.
+          I am a passionate Computer Engineering student with strong motivation in developing real-world applications. My focus lies in mobile and backend development, and I am currently improving my skills through hands-on projects. Recently, I developed a Flutter-based Pomodoro productivity app, where I designed a responsive UI, implemented custom timer logic, and managed state efficiently using Flutter’s native tools.
+          I enjoy solving problems, learning modern technologies, and building clean, scalable software. I aim to contribute to innovative teams and continuously grow as a developer.
           </p>
         </div>
       </div>
