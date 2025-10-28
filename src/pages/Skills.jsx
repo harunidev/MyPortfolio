@@ -4,58 +4,46 @@ import { motion } from "framer-motion";
 export default function Skills() {
   const skillCategories = [
     {
-      name: "Backend Development",
-      icon: "fas fa-server",
+      name: "Programming Languages",
+      icon: "fas fa-code",
       color: "#3B82F6",
       skills: [
-        { name: "Java", level: 5, details: "Spring Boot, Hibernate, JPA" },
-        { name: "Python", level: 4, details: "Django, Flask, FastAPI" },
-        { name: "C/C++", level: 4, details: "OOP, Data Structures, Algorithms" },
-        { name: "Node.js", level: 4, details: "Express.js, REST APIs" },
+        { name: "Java", details: "Object-oriented programming, Spring Boot framework" },
+        { name: "Python", details: "FastAPI, data analysis, automation scripting" },
+        { name: "C#", details: "Backend development, API integration, .NET framework" },
+        { name: "Dart", details: "Flutter mobile development, cross-platform applications" },
       ]
     },
     {
-      name: "Frontend Development",
-      icon: "fas fa-code",
+      name: "RPA & Automation",
+      icon: "fas fa-robot",
       color: "#10B981",
       skills: [
-        { name: "Flutter", level: 4, details: "Dart, Flutter, Flutter Web" },
-        { name: "ASP.Net MVC", level: 5, details: "C#, ASP.Net MVC, Entity Framework" },
-        { name: "HTML/CSS", level: 5, details: "Tailwind CSS, SASS" },
-        { name: "UI/UX", level: 4, details: "Responsive Design, Material UI" },
-        { name: "JavaScript", level: 5, details: "ES6+, TypeScript, React" },
+        { name: "RPA", details: "uiPath, ZOZI360 workflow automation" },
+        { name: "N8N Automation", details: "Workflow automation, API integrations" },
+        { name: "Spring Boot", details: "Microservices, REST APIs, enterprise applications" },
       ]
     },
     {
-      name: "DevOps & Tools",
-      icon: "fas fa-tools",
+      name: "Database & Development Tools",
+      icon: "fas fa-database",
       color: "#F59E0B",
       skills: [
-        { name: "Git", level: 5, details: "GitHub, GitLab, CI/CD" },
-        { name: "Docker", level: 4, details: "Containerization, Docker Compose" },
-        { name: "AWS", level: 3, details: "EC2, S3, Lambda" },
-        { name: "Linux", level: 4, details: "Ubuntu, Shell Scripting" }
-      ]
-    },
-    {
-      name: "Database Management",
-      icon: "fas fa-tools",
-      color: "#F59E0B",
-      skills: [
-        { name: "MySQL", level: 5, details: "MySQL, PostgreSQL, Oracle" },
-        { name: "MongoDB", level: 4, details: "MongoDB, NoSQL" },
-        { name: "Firebase", level: 3, details: "Firebase, Realtime Database" },
-        { name: "MS SQL", level: 5, details: "MSSQL, SQL Server, SQL" }
+        { name: "SQL", details: "MSSQL, MySQL, PostgreSQL database management" },
+        { name: "Flutter", details: "Mobile app development, UI/UX design" },
+        { name: "Android Studio", details: "Mobile development environment, debugging" },
+        { name: "Docker", details: "Containerization, deployment automation" }
       ]
     },
   ];
 
   return (
     <motion.main
-      className="min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      className="min-h-screen bg-gradient-to-br from-light-gray via-light-white to-light-gray-dark dark:from-dark-navy dark:via-dark-navy-light dark:to-dark-navy text-light-black dark:text-white transition-colors duration-300 relative z-10"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto px-6 py-20">
         <motion.div
@@ -64,10 +52,10 @@ export default function Skills() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-purple-600 dark:text-transparent dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-500">
+          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-light-orange dark:text-transparent dark:bg-gradient-to-r dark:from-dark-blue-lighter dark:to-dark-blue-light">
             Skills & Expertise
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-light-black-light dark:text-gray-400 text-lg max-w-2xl mx-auto">
             A comprehensive overview of my technical skills and professional expertise
           </p>
         </motion.div>
@@ -76,7 +64,7 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
-              className="backdrop-blur-lg bg-gray-800/30 rounded-2xl p-8 shadow-xl border border-gray-700/50"
+              className="backdrop-blur-lg bg-light-gray-dark/80 dark:bg-dark-navy/30 rounded-2xl p-8 shadow-xl border border-light-orange/30 dark:border-dark-blue/50"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -92,7 +80,7 @@ export default function Skills() {
                     style={{ color: category.color }}
                   ></i>
                 </div>
-                <h2 className="text-2xl font-semibold text-purple-600 dark:text-white">{category.name}</h2>
+                <h2 className="text-2xl font-semibold text-light-orange dark:text-white">{category.name}</h2>
               </div>
 
               <div className="space-y-6">
@@ -106,20 +94,8 @@ export default function Skills() {
                   >
                     <div className="flex justify-between items-center">
                       <h3 className="text-lg font-medium">{skill.name}</h3>
-                      <div className="flex space-x-1">
-                        {[...Array(5)].map((_, i) => (
-                          <div
-                            key={i}
-                            className={`w-3 h-3 rounded-full ${
-                              i < skill.level
-                                ? "bg-blue-500"
-                                : "bg-gray-700"
-                            }`}
-                          />
-                        ))}
-                      </div>
                     </div>
-                    <p className="text-gray-900 dark:text-gray-400 text-sm">{skill.details}</p>
+                    <p className="text-light-black dark:text-gray-400 text-sm">{skill.details}</p>
                   </motion.div>
                 ))}
               </div>

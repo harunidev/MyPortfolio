@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm z-50 shadow-md"
+      className="fixed top-0 left-0 right-0 bg-light-gray dark:bg-dark-navy bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm z-50 shadow-md"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <Link to="/" className="text-gray-900 dark:text-white text-xl font-bold">
+            <Link to="/" className="text-light-black dark:text-white text-xl font-bold">
               HI
             </Link>
           </div>
@@ -38,8 +38,8 @@ export default function Navbar() {
                   to={link.path}
                   className={`${
                     location.pathname === link.path
-                      ? "text-blue-600 dark:text-blue-400"
-                      : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                      ? "text-light-orange dark:text-dark-blue-lighter"
+                      : "text-light-black-light dark:text-gray-300 hover:text-light-black dark:hover:text-white"
                   } px-3 py-2 rounded-md text-sm font-medium transition-colors`}
                 >
                   {link.label}
@@ -49,7 +49,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-lg bg-light-gray dark:bg-dark-navy-light text-light-black-light dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-navy-lighter transition-colors"
               aria-label="Toggle theme"
             >
               {isDarkTheme ? (
