@@ -1,0 +1,13 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="96" cy="96" r="88" fill="#FF6D5A" stroke="#E53E3E" stroke-width="4"/>
+  
+  <!-- n8n text -->
+  <text x="96" y="110" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="white">n8n</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="60" cy="60" r="8" fill="white" opacity="0.3"/>
+  <circle cx="132" cy="60" r="6" fill="white" opacity="0.4"/>
+  <circle cx="60" cy="132" r="6" fill="white" opacity="0.4"/>
+  <circle cx="132" cy="132" r="8" fill="white" opacity="0.3"/>
+</svg>

@@ -7,32 +7,33 @@ export default function Contact() {
       icon: "fas fa-envelope",
       label: "Email",
       value: "harunisikd@gmail.com",
-      boxClass: "bg-blue-500/20",
-      iconClass: "text-blue-500"
+      boxClass: "bg-light-orange/20 dark:bg-dark-blue/20",
+      iconClass: "text-light-orange dark:text-dark-blue-lighter"
     },
     {
       icon: "fab fa-github",
       label: "GitHub",
       value: "github.com/harunidev",
       isLink: true,
-      boxClass: "bg-purple-500/20",
-      iconClass: "text-purple-500"
+      boxClass: "bg-light-orange-light/20 dark:bg-dark-blue-light/20",
+      iconClass: "text-light-orange-light dark:text-dark-blue-light"
     },
     {
       icon: "fas fa-phone",
       label: "Phone",
       value: "+90 538 600 42 55",
-      boxClass: "bg-green-500/20",
-      iconClass: "text-green-500"
+      boxClass: "bg-light-orange-lighter/20 dark:bg-dark-blue-lighter/20",
+      iconClass: "text-light-orange-lighter dark:text-dark-blue-lighter"
     }
   ];
 
   return (
     <motion.main
-      className="min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      className="min-h-screen bg-gradient-to-br from-light-gray via-light-white to-light-gray-dark dark:from-dark-navy dark:via-dark-navy-light dark:to-dark-navy text-light-black dark:text-white transition-colors duration-300 relative z-10"
+      initial={{ opacity: 0, rotateY: -15 }}
+      animate={{ opacity: 1, rotateY: 0 }}
+      exit={{ opacity: 0, rotateY: 15 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto px-6 py-20">
         <motion.div
@@ -41,13 +42,13 @@ export default function Contact() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-light-orange dark:text-transparent dark:bg-gradient-to-r dark:from-dark-blue-lighter dark:to-dark-blue-light">
             Contact Me
           </h1>
         </motion.div>
 
         <motion.div
-          className="max-w-2xl mx-auto backdrop-blur-lg bg-gray-800/30 rounded-2xl p-8 shadow-xl border border-gray-700/50"
+          className="max-w-2xl mx-auto backdrop-blur-lg bg-light-gray-dark/80 dark:bg-dark-navy/30 rounded-2xl p-8 shadow-xl border border-light-orange/30 dark:border-dark-blue/50"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
@@ -65,18 +66,18 @@ export default function Contact() {
                   <i className={`${info.icon} text-xl ${info.iconClass}`}></i>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">{info.label}</p>
+                  <p className="text-light-black-light dark:text-gray-400 text-sm">{info.label}</p>
                   {info.isLink ? (
                     <a
                       href={`https://${info.value}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-blue-400 transition-colors"
+                      className="text-light-black dark:text-white hover:text-light-orange dark:hover:text-dark-blue-lighter transition-colors"
                     >
                       {info.value}
                     </a>
                   ) : (
-                    <p className="text-white">{info.value}</p>
+                    <p className="text-light-black dark:text-white">{info.value}</p>
                   )}
                 </div>
               </motion.div>
