@@ -1,108 +1,136 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function Skills() {
-  const skillCategories = [
-    {
-      name: "Programming Languages",
-      icon: "fas fa-code",
-      color: "#3B82F6",
-      skills: [
-        { name: "Java", details: "Object-oriented programming, Spring Boot framework" },
-        { name: "Python", details: "FastAPI, data analysis, automation scripting" },
-        { name: "C#", details: "Backend development, API integration, .NET framework" },
-        { name: "Dart", details: "Flutter mobile development, cross-platform applications" },
-      ]
-    },
-    {
-      name: "RPA & Automation",
-      icon: "fas fa-robot",
-      color: "#10B981",
-      skills: [
-        { name: "RPA", details: "uiPath, ZOZI360 workflow automation" },
-        { name: "N8N Automation", details: "Workflow automation, API integrations" },
-        { name: "Spring Boot", details: "Microservices, REST APIs, enterprise applications" },
-      ]
-    },
-    {
-      name: "Database & Development Tools",
-      icon: "fas fa-database",
-      color: "#F59E0B",
-      skills: [
-        { name: "SQL", details: "MSSQL, MySQL, PostgreSQL database management" },
-        { name: "Flutter", details: "Mobile app development, UI/UX design" },
-        { name: "Android Studio", details: "Mobile development environment, debugging" },
-        { name: "Docker", details: "Containerization, deployment automation" }
-      ]
-    },
-  ];
+const cardStyle = {
+  background: "rgba(255,255,255,0.04)",
+  border: "1px solid rgba(249,115,22,0.2)",
+  backdropFilter: "blur(12px)",
+};
 
+const skillCategories = [
+  {
+    name: "Programming Languages",
+    icon: "fas fa-code",
+    skills: [
+      { name: "C# / .NET",   details: "Backend services, REST APIs, Clean Architecture, CQRS" },
+      { name: "Java",         details: "Spring Boot, microservices, enterprise applications" },
+      { name: "Python",       details: "FastAPI, automation scripting, data pipelines, AI agents" },
+      { name: "Flutter / Dart", details: "Cross-platform mobile development, Android Studio" },
+    ],
+  },
+  {
+    name: "RPA & Automation",
+    icon: "fas fa-robot",
+    skills: [
+      { name: "ZOZI360 RPA",       details: "Enterprise workflow automation, SAP integration, production deployments" },
+      { name: "uiPath",             details: "Robotic process automation, attended/unattended bots" },
+      { name: "N8N Automation",     details: "Low-code workflow automation, API integrations, event-driven flows" },
+      { name: "Spring Boot",        details: "REST microservices, scheduled jobs, JPA, Hibernate" },
+    ],
+  },
+  {
+    name: "Databases",
+    icon: "fas fa-database",
+    skills: [
+      { name: "MSSQL",      details: "Query optimization, stored procedures, schema design" },
+      { name: "PostgreSQL", details: "Integration with .NET, CQRS read models, performance tuning" },
+      { name: "MySQL",      details: "Web application backends, relational data modeling" },
+      { name: "Oracle DB",  details: "Enterprise data integration, mail processing pipelines" },
+    ],
+  },
+  {
+    name: "DevOps & Tools",
+    icon: "fas fa-tools",
+    skills: [
+      { name: "Docker",          details: "Containerization, multi-stage builds, production deployments" },
+      { name: "Git",             details: "Version control, branching strategies, code reviews" },
+      { name: "Application Insights", details: "Structured logging, real-time telemetry, monitoring" },
+      { name: "Android Studio",  details: "Mobile development environment, debugging, profiling" },
+    ],
+  },
+];
+
+export default function Skills() {
   return (
     <motion.main
-      className="min-h-screen bg-gradient-to-br from-light-gray via-light-white to-light-gray-dark dark:from-dark-navy dark:via-dark-navy-light dark:to-dark-navy text-light-black dark:text-white transition-colors duration-300 relative z-10"
+      className="min-h-screen text-white relative z-10 pt-24 pb-16"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -30 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-6 max-w-5xl">
+
+        {/* Header */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
         >
-          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-light-orange dark:text-transparent dark:bg-gradient-to-r dark:from-dark-blue-lighter dark:to-dark-blue-light">
-            Skills & Expertise
-          </h1>
-          <p className="text-light-black-light dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills and professional expertise
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-2 block"
+            style={{ color: "#fb923c" }}
+          >
+            Expertise
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white">Skills</h1>
+          <div className="mt-3 h-0.5 w-16" style={{ background: "linear-gradient(90deg, #f97316, transparent)" }} />
+          <p className="mt-4 text-gray-400 max-w-xl">
+            Technical skills across backend development, RPA automation, and production systems.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
-              className="backdrop-blur-lg bg-light-gray-dark/80 dark:bg-dark-navy/30 rounded-2xl p-8 shadow-xl border border-light-orange/30 dark:border-dark-blue/50"
+              className="rounded-2xl p-7"
+              style={cardStyle}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
+              transition={{ delay: 0.15 + index * 0.1 }}
+              whileHover={{ borderColor: "rgba(249,115,22,0.38)" }}
             >
-              <div className="flex items-center mb-6">
+              {/* Category header */}
+              <div className="flex items-center gap-3 mb-6">
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mr-4"
-                  style={{ backgroundColor: `${category.color}20` }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{
+                    background: "rgba(249,115,22,0.12)",
+                    border: "1px solid rgba(249,115,22,0.25)",
+                  }}
                 >
-                  <i
-                    className={`${category.icon} text-2xl`}
-                    style={{ color: category.color }}
-                  ></i>
+                  <i className={`${category.icon} text-orange-400`}></i>
                 </div>
-                <h2 className="text-2xl font-semibold text-light-orange dark:text-white">{category.name}</h2>
+                <h2 className="text-base font-semibold text-white">{category.name}</h2>
               </div>
 
-              <div className="space-y-6">
+              {/* Skills list */}
+              <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skillIndex}
-                    className="space-y-2"
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 + skillIndex * 0.1 }}
+                    transition={{ delay: 0.2 + index * 0.1 + skillIndex * 0.05 }}
                   >
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-lg font-medium">{skill.name}</h3>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span
+                        className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ background: "#f97316" }}
+                      />
+                      <span className="text-sm font-medium text-gray-200">{skill.name}</span>
                     </div>
-                    <p className="text-light-black dark:text-gray-400 text-sm">{skill.details}</p>
+                    <p className="text-xs text-gray-500 pl-3.5 leading-relaxed">{skill.details}</p>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </motion.main>
   );
-} 
+}
