@@ -1,22 +1,44 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const cardStyle = {
-  background: "rgba(255,255,255,0.04)",
-  border: "1px solid rgba(249,115,22,0.2)",
-  backdropFilter: "blur(12px)",
-};
-
 const skillTags = [
   "C# / .NET", "Java", "Python", "RPA – uiPath / ZOZI360",
   "N8N Automation", "Spring Boot", "REST API", "Oracle DB",
   "MSSQL / PostgreSQL", "Docker", "SAP Integration", "Flutter / Dart",
 ];
 
+function Card({ children, delay = 0, hover = true }) {
+  return (
+    <motion.div
+      className="rounded-2xl p-8 mb-6"
+      style={{
+        background: "var(--card-bg)",
+        border: "1px solid var(--card-border)",
+        backdropFilter: "blur(12px)",
+      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay }}
+      whileHover={hover ? { y: -4, borderColor: "var(--card-border-hover)", boxShadow: "0 8px 30px color-mix(in srgb, var(--accent) 10%, transparent)" } : {}}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function SectionLabel({ children }) {
+  return (
+    <span className="text-xs font-semibold tracking-widest uppercase mb-2 block" style={{ color: "var(--accent)" }}>
+      {children}
+    </span>
+  );
+}
+
 export default function About() {
   return (
     <motion.main
-      className="min-h-screen text-white relative z-10 pt-24 pb-16"
+      className="min-h-screen relative z-10 pt-24 pb-16"
+      style={{ color: "var(--text-primary)" }}
       initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 30 }}
@@ -24,123 +46,89 @@ export default function About() {
     >
       <div className="container mx-auto px-6 max-w-3xl">
 
-        {/* Section header */}
-        <motion.div
-          className="mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-        >
-          <span
-            className="text-xs font-semibold tracking-widest uppercase mb-2 block"
-            style={{ color: "#fb923c" }}
-          >
-            Who I am
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">About Me</h1>
-          <div className="mt-3 h-0.5 w-16" style={{ background: "linear-gradient(90deg, #f97316, transparent)" }} />
+        {/* Header */}
+        <motion.div className="mb-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+          <SectionLabel>Who I am</SectionLabel>
+          <h1 className="text-4xl md:text-5xl font-bold" style={{ color: "var(--text-primary)" }}>About Me</h1>
+          <div className="mt-3 h-0.5 w-16" style={{ background: "var(--divider-gradient)" }} />
         </motion.div>
 
-        {/* Summary card */}
-        <motion.div
-          className="rounded-2xl p-8 mb-8"
-          style={cardStyle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          <p className="text-gray-300 text-base leading-relaxed">
+        {/* Summary */}
+        <Card delay={0.2}>
+          <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
             Software &amp; RPA Developer with hands-on production experience in C#/.NET, Java, and Python.
             Specialized in enterprise automation, REST API integrations, and ERP data workflows including
             SAP and Nebim V3. Experienced in building scalable backend services, automated mail processing
             pipelines, Oracle database integrations, and Docker containerization across real production
             environments.
           </p>
-        </motion.div>
+        </Card>
 
-        {/* Education card */}
-        <motion.div
-          className="rounded-2xl p-8 mb-8"
-          style={cardStyle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <h2 className="text-lg font-semibold text-orange-400 mb-4">Education</h2>
+        {/* Education */}
+        <Card delay={0.3}>
+          <h2 className="text-lg font-semibold mb-4" style={{ color: "var(--accent)" }}>Education</h2>
           <div className="flex items-start gap-4">
-            <div
+            <motion.div
               className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center mt-0.5"
-              style={{ background: "rgba(249,115,22,0.12)", border: "1px solid rgba(249,115,22,0.25)" }}
+              style={{ background: "var(--icon-bg)", border: "1px solid var(--icon-border)" }}
+              whileHover={{ scale: 1.1, rotate: 5 }}
             >
-              <i className="fas fa-graduation-cap text-orange-400"></i>
-            </div>
+              <i className="fas fa-graduation-cap" style={{ color: "var(--accent)" }}></i>
+            </motion.div>
             <div>
-              <p className="text-white font-medium">Bachelor's, Computer Engineering</p>
-              <p className="text-gray-400 text-sm">Istanbul Kultur University · 2022 – 2026</p>
-              <p className="text-gray-500 text-sm mt-2">
+              <p className="font-medium" style={{ color: "var(--text-primary)" }}>Bachelor's, Computer Engineering</p>
+              <p className="text-sm" style={{ color: "var(--text-muted)" }}>Istanbul Kultur University · 2022 – 2026</p>
+              <p className="text-sm mt-2" style={{ color: "var(--text-faint)" }}>
                 Capstone: RAG Pipeline Evaluation – Python, FAISS, HuggingFace. Designed and benchmarked
                 three RAG architectures (DPR+ColBERT, BGE M3, Jina v3) analyzing retrieval accuracy,
                 generation quality, latency, and safety metrics.
               </p>
             </div>
           </div>
-        </motion.div>
+        </Card>
 
-        {/* Certifications card */}
-        <motion.div
-          className="rounded-2xl p-8 mb-8"
-          style={cardStyle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35 }}
-        >
-          <h2 className="text-lg font-semibold text-orange-400 mb-4">Certifications</h2>
+        {/* Certifications */}
+        <Card delay={0.35}>
+          <h2 className="text-lg font-semibold mb-4" style={{ color: "var(--accent)" }}>Certifications</h2>
           <ul className="space-y-2">
             {[
-              { label: "Machine Learning", issuer: "Global AI Hub · Akbank" },
-              { label: "Deep Learning", issuer: "Global AI Hub · Akbank" },
-              { label: "Python", issuer: "Udemy" },
-              { label: "Java", issuer: "Udemy" },
-              { label: "Leadership (Liderlik)", issuer: "IEEE" },
+              { label: "Machine Learning",       issuer: "Global AI Hub · Akbank" },
+              { label: "Deep Learning",           issuer: "Global AI Hub · Akbank" },
+              { label: "Python",                  issuer: "Udemy" },
+              { label: "Java",                    issuer: "Udemy" },
+              { label: "Leadership (Liderlik)",   issuer: "IEEE" },
             ].map((cert) => (
-              <li key={cert.label} className="flex items-center gap-3">
-                <span
-                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                  style={{ background: "#f97316" }}
-                />
-                <span className="text-gray-300 text-sm">
+              <motion.li key={cert.label} className="flex items-center gap-3" whileHover={{ x: 4 }}>
+                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "var(--accent)" }} />
+                <span className="text-sm" style={{ color: "var(--text-muted)" }}>
                   {cert.label}{" "}
-                  <span className="text-gray-500">— {cert.issuer}</span>
+                  <span style={{ color: "var(--text-faint)" }}>— {cert.issuer}</span>
                 </span>
-              </li>
+              </motion.li>
             ))}
           </ul>
-        </motion.div>
+        </Card>
 
-        {/* Skills tags */}
-        <motion.div
-          className="rounded-2xl p-8"
-          style={cardStyle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          <h2 className="text-lg font-semibold text-orange-400 mb-4">Technical Skills</h2>
+        {/* Skills */}
+        <Card delay={0.4}>
+          <h2 className="text-lg font-semibold mb-4" style={{ color: "var(--accent)" }}>Technical Skills</h2>
           <div className="flex flex-wrap gap-2">
             {skillTags.map((tag) => (
-              <span
+              <motion.span
                 key={tag}
-                className="px-3 py-1.5 rounded-lg text-sm text-gray-300"
+                className="px-3 py-1.5 rounded-lg text-sm"
                 style={{
-                  background: "rgba(249,115,22,0.08)",
-                  border: "1px solid rgba(249,115,22,0.2)",
+                  background: "var(--tag-bg)",
+                  border: "1px solid var(--tag-border)",
+                  color: "var(--text-muted)",
                 }}
+                whileHover={{ scale: 1.06, color: "var(--accent)", borderColor: "var(--accent)" }}
               >
                 {tag}
-              </span>
+              </motion.span>
             ))}
           </div>
-        </motion.div>
+        </Card>
 
       </div>
     </motion.main>

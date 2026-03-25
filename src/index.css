@@ -2,22 +2,117 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-#root {
+/* ============================================================
+   THEME CSS CUSTOM PROPERTIES
+   Light = default, Dark = .dark class on <html>
+   ============================================================ */
+
+:root {
+  /* Light theme — white & light blue */
+  --bg-primary:       #f0f6ff;
+  --bg-secondary:     #e4eeff;
+  --card-bg:          rgba(59, 130, 246, 0.06);
+  --card-border:      rgba(59, 130, 246, 0.22);
+  --card-border-hover:rgba(59, 130, 246, 0.5);
+  --nav-bg:           rgba(240, 246, 255, 0.85);
+  --nav-border:       rgba(59, 130, 246, 0.18);
+  --text-primary:     #1e293b;
+  --text-muted:       #475569;
+  --text-faint:       #94a3b8;
+  --accent:           #3b82f6;
+  --accent-light:     #60a5fa;
+  --accent-lighter:   #93c5fd;
+  --accent-gradient:  linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
+  --badge-bg:         rgba(59, 130, 246, 0.12);
+  --badge-border:     rgba(59, 130, 246, 0.35);
+  --badge-color:      #2563eb;
+  --tag-bg:           rgba(59, 130, 246, 0.08);
+  --tag-border:       rgba(59, 130, 246, 0.18);
+  --btn-primary-bg:   linear-gradient(135deg, #3b82f6, #2563eb);
+  --btn-primary-shadow: 0 0 24px rgba(59, 130, 246, 0.3);
+  --btn-secondary-bg: rgba(59, 130, 246, 0.07);
+  --btn-secondary-border: rgba(59, 130, 246, 0.3);
+  --icon-bg:          rgba(59, 130, 246, 0.1);
+  --icon-border:      rgba(59, 130, 246, 0.25);
+  --dot-color:        rgba(59, 130, 246, 0.25);
+  --shape-color:      #3b82f6;
+  --divider-gradient: linear-gradient(90deg, #3b82f6, transparent);
+  --timeline-line:    linear-gradient(180deg, #3b82f6, rgba(59,130,246,0.05));
+  --dot-glow:         0 0 12px rgba(59, 130, 246, 0.5);
+  --scroll-bar:       rgba(59, 130, 246, 0.4);
+  --private-bg:       rgba(100, 116, 139, 0.12);
+  --private-border:   rgba(100, 116, 139, 0.3);
+  --private-color:    #64748b;
+  --public-bg:        rgba(34, 197, 94, 0.1);
+  --public-border:    rgba(34, 197, 94, 0.3);
+  --public-color:     #16a34a;
+}
+
+:root.dark {
+  /* Dark theme — warm orange */
+  --bg-primary:       #0f0a14;
+  --bg-secondary:     #1c1128;
+  --card-bg:          rgba(255, 255, 255, 0.04);
+  --card-border:      rgba(249, 115, 22, 0.2);
+  --card-border-hover:rgba(249, 115, 22, 0.5);
+  --nav-bg:           rgba(15, 10, 20, 0.8);
+  --nav-border:       rgba(249, 115, 22, 0.15);
+  --text-primary:     #f1f0ee;
+  --text-muted:       #9ca3af;
+  --text-faint:       #6b7280;
+  --accent:           #f97316;
+  --accent-light:     #fb923c;
+  --accent-lighter:   #fdba74;
+  --accent-gradient:  linear-gradient(135deg, #f97316, #fb923c, #fdba74);
+  --badge-bg:         rgba(249, 115, 22, 0.1);
+  --badge-border:     rgba(249, 115, 22, 0.3);
+  --badge-color:      #fb923c;
+  --tag-bg:           rgba(255, 255, 255, 0.05);
+  --tag-border:       rgba(249, 115, 22, 0.15);
+  --btn-primary-bg:   linear-gradient(135deg, #f97316, #ea580c);
+  --btn-primary-shadow: 0 0 24px rgba(249, 115, 22, 0.25);
+  --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --btn-secondary-border: rgba(249, 115, 22, 0.3);
+  --icon-bg:          rgba(249, 115, 22, 0.1);
+  --icon-border:      rgba(249, 115, 22, 0.25);
+  --dot-color:        rgba(249, 115, 22, 0.18);
+  --shape-color:      #f97316;
+  --divider-gradient: linear-gradient(90deg, #f97316, transparent);
+  --timeline-line:    linear-gradient(180deg, #f97316, rgba(249,115,22,0.05));
+  --dot-glow:         0 0 12px rgba(249, 115, 22, 0.5);
+  --scroll-bar:       rgba(249, 115, 22, 0.4);
+  --private-bg:       rgba(100, 116, 139, 0.12);
+  --private-border:   rgba(100, 116, 139, 0.3);
+  --private-color:    #9ca3af;
+  --public-bg:        rgba(34, 197, 94, 0.1);
+  --public-border:    rgba(34, 197, 94, 0.25);
+  --public-color:     #4ade80;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+html, body, #root {
   height: 100%;
 }
 
 body {
   margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Smooth theme transitions on all elements */
+*, *::before, *::after {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
