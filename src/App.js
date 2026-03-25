@@ -15,7 +15,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="min-h-screen bg-warm-bg transition-all duration-500 relative overflow-hidden">
+        <div className="min-h-screen transition-all duration-300 relative overflow-hidden" style={{ backgroundColor: "var(--bg-primary)" }}>
           <GeometricBackground />
           <Navbar />
           <AnimatePresence mode="wait">

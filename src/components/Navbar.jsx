@@ -23,9 +23,9 @@ export default function Navbar() {
     <motion.nav
       className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: "rgba(15,10,20,0.8)",
+        background: "var(--nav-bg)",
         backdropFilter: "blur(14px)",
-        borderBottom: "1px solid rgba(249,115,22,0.15)",
+        borderBottom: "1px solid var(--nav-border)",
       }}
       initial={{ y: -80 }}
       animate={{ y: 0 }}
@@ -34,33 +34,50 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link
-            to="/"
-            className="text-orange-400 font-bold text-xl tracking-widest hover:text-orange-300 transition-colors"
-            style={{ fontFamily: "monospace" }}
-          >
-            &lt;HI /&gt;
-          </Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/"
+              className="font-bold text-xl tracking-widest transition-colors"
+              style={{ color: "var(--accent)", fontFamily: "monospace" }}
+            >
+              &lt;HI /&gt;
+            </Link>
+          </motion.div>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isActive(link.path)
-                    ? "text-orange-400 bg-orange-500/10 border border-orange-500/25"
-                    : "text-gray-400 hover:text-orange-300 hover:bg-white/5"
-                }`}
-              >
-                {link.label}
-              </Link>
+              <motion.div key={link.path} whileHover={{ y: -1 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to={link.path}
+                  className="px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                  style={
+                    isActive(link.path)
+                      ? {
+                          color: "var(--accent)",
+                          background: "var(--badge-bg)",
+                          border: "1px solid var(--badge-border)",
+                        }
+                      : {
+                          color: "var(--text-muted)",
+                          border: "1px solid transparent",
+                        }
+                  }
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             ))}
 
-            <button
+            <motion.button
               onClick={toggleTheme}
-              className="ml-3 p-2 rounded-lg border border-orange-500/20 text-gray-400 hover:text-orange-300 hover:border-orange-500/40 transition-all"
+              className="ml-3 p-2 rounded-lg transition-all"
+              style={{
+                border: "1px solid var(--card-border)",
+                color: "var(--text-muted)",
+              }}
+              whileHover={{ scale: 1.1, rotate: 15 }}
+              whileTap={{ scale: 0.9 }}
               aria-label="Toggle theme"
             >
               {isDarkTheme ? (
@@ -74,13 +91,16 @@ export default function Navbar() {
                     d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               )}
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-2 text-gray-400 hover:text-orange-300 transition-colors"
+          <motion.button
+            className="md:hidden p-2 transition-colors"
+            style={{ color: "var(--text-muted)" }}
             onClick={() => setMenuOpen((o) => !o)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +110,7 @@ export default function Navbar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
-          </button>
+          </motion.button>
         </div>
       </div>
 
@@ -103,7 +123,7 @@ export default function Navbar() {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
             className="md:hidden overflow-hidden"
-            style={{ background: "rgba(15,10,20,0.97)", borderTop: "1px solid rgba(249,115,22,0.1)" }}
+            style={{ background: "var(--nav-bg)", borderTop: "1px solid var(--nav-border)" }}
           >
             <div className="px-4 py-3 space-y-1">
               {navLinks.map((link) => (
@@ -111,11 +131,12 @@ export default function Navbar() {
                   key={link.path}
                   to={link.path}
                   onClick={() => setMenuOpen(false)}
-                  className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  className="block px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
+                  style={
                     isActive(link.path)
-                      ? "text-orange-400 bg-orange-500/10"
-                      : "text-gray-400 hover:text-orange-300 hover:bg-white/5"
-                  }`}
+                      ? { color: "var(--accent)", background: "var(--badge-bg)" }
+                      : { color: "var(--text-muted)" }
+                  }
                 >
                   {link.label}
                 </Link>
