@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -10,126 +9,185 @@ export default function Home() {
     {
       name: "GitHub",
       url: "https://github.com/harunidev",
-      icon: "fab fa-github"
+      icon: "fab fa-github",
     },
     {
       name: "LinkedIn",
       url: "https://linkedin.com/in/harunisik001",
-      icon: "fab fa-linkedin"
+      icon: "fab fa-linkedin",
     },
     {
-      name: "Twitter",
-      url: "https://twitter.com/harunisik",
-      icon: "fab fa-twitter"
-    }
+      name: "Email",
+      url: "mailto:harunisikd@gmail.com",
+      icon: "fas fa-envelope",
+    },
   ];
+
+  const tags = ["C# / .NET", "Java", "Python", "RPA", "Docker", "REST API"];
 
   return (
     <motion.main
-      className="min-h-screen bg-gradient-to-br from-light-gray via-light-white to-light-gray-dark dark:from-dark-navy dark:via-dark-navy-light dark:to-dark-navy text-light-black dark:text-white transition-colors duration-300 relative z-10"
+      className="min-h-screen text-white relative z-10"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto px-6 py-20">
-        <div className="flex flex-col items-center justify-center min-h-[80vh]">
-          {/* Hero Section */}
+        <div className="flex flex-col items-center justify-center min-h-[85vh]">
+
+          {/* Badge */}
           <motion.div
-            className="text-center mb-12"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
+            className="mb-6 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase"
+            style={{
+              background: "rgba(249,115,22,0.1)",
+              border: "1px solid rgba(249,115,22,0.3)",
+              color: "#fb923c",
+            }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1 }}
           >
-            <motion.h1 
-              className="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-light-orange dark:text-transparent dark:bg-gradient-to-r dark:from-dark-blue-lighter dark:to-dark-blue-light"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+            Software &amp; RPA Developer
+          </motion.div>
+
+          {/* Name */}
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold mb-4 text-center"
+            style={{ color: "#f1f0ee", letterSpacing: "-0.02em" }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            Harun{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #f97316, #fb923c, #fdba74)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
             >
-              Harun Işık
-            </motion.h1>
-            <motion.h2 
-              className="text-2xl md:text-3xl text-light-black-light dark:text-gray-400 mb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              Java Developer | Backend Engineer
-            </motion.h2>
-            <motion.p 
-              className="text-light-black dark:text-gray-400 text-lg max-w-2xl mx-auto mb-12"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-            >
-              Passionate about creating efficient and scalable solutions. 
-              Specializing in Java development, RPA automation, and backend systems.
-            </motion.p>
+              Işık
+            </span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            className="text-gray-400 text-lg md:text-xl max-w-2xl text-center mb-10 leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.35, duration: 0.5 }}
+          >
+            Hands-on production experience in C#/.NET, Java &amp; Python.
+            Specialized in enterprise automation, REST API integrations, and
+            ERP data workflows including SAP and Nebim V3.
+          </motion.p>
+
+          {/* Tech tags */}
+          <motion.div
+            className="flex flex-wrap justify-center gap-2 mb-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.45 }}
+          >
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1 rounded-md text-sm text-gray-300"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(249,115,22,0.15)",
+                }}
+              >
+                {tag}
+              </span>
+            ))}
           </motion.div>
 
           {/* Social Links */}
           <motion.div
-            className="flex space-x-8 mb-12"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            className="flex gap-5 mb-10"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
           >
-            {socialLinks.map((link, index) => (
+            {socialLinks.map((link) => (
               <motion.a
-                key={index}
+                key={link.name}
                 href={link.url}
-                target="_blank"
+                target={link.url.startsWith("mailto") ? "_self" : "_blank"}
                 rel="noopener noreferrer"
-                className="text-3xl text-light-black-light dark:text-gray-400 hover:text-light-orange dark:hover:text-dark-blue-lighter transition-colors"
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
+                className="w-11 h-11 flex items-center justify-center rounded-xl text-gray-400 transition-all"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(249,115,22,0.2)",
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  color: "#fb923c",
+                  borderColor: "rgba(249,115,22,0.5)",
+                }}
+                whileTap={{ scale: 0.95 }}
               >
-                <i className={link.icon}></i>
+                <i className={`${link.icon} text-lg`}></i>
               </motion.a>
             ))}
           </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-6"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            className="flex flex-col sm:flex-row gap-4"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
             <motion.button
               onClick={() => navigate("/projects")}
-              className="px-8 py-4 bg-light-white text-light-black font-semibold rounded-full shadow-lg hover:shadow-light-orange/20 dark:hover:shadow-dark-blue/20 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3.5 rounded-xl font-semibold text-sm text-white"
+              style={{
+                background: "linear-gradient(135deg, #f97316, #ea580c)",
+                boxShadow: "0 0 24px rgba(249,115,22,0.25)",
+              }}
+              whileHover={{ scale: 1.04, boxShadow: "0 0 32px rgba(249,115,22,0.4)" }}
+              whileTap={{ scale: 0.97 }}
             >
               View Projects
             </motion.button>
             <motion.button
               onClick={() => navigate("/contact")}
-              className="px-8 py-4 bg-light-black text-light-white font-semibold rounded-full shadow-lg hover:shadow-light-orange/20 dark:hover:shadow-dark-blue/20 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3.5 rounded-xl font-semibold text-sm text-gray-300"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(249,115,22,0.3)",
+              }}
+              whileHover={{
+                scale: 1.04,
+                background: "rgba(249,115,22,0.1)",
+                borderColor: "rgba(249,115,22,0.5)",
+                color: "#fb923c",
+              }}
+              whileTap={{ scale: 0.97 }}
             >
               Contact Me
             </motion.button>
           </motion.div>
 
-          {/* Scroll Indicator */}
+          {/* Scroll indicator */}
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, repeat: Infinity, repeatType: "reverse" }}
+            transition={{ delay: 1.2 }}
           >
-            <div className="w-6 h-10 border-2 border-light-black-light dark:border-gray-600 rounded-full flex justify-center">
-              <motion.div
-                className="w-1 h-3 bg-light-black-light dark:bg-gray-600 rounded-full mt-2"
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              />
-            </div>
+            <span className="text-gray-600 text-xs tracking-widest uppercase">scroll</span>
+            <motion.div
+              className="w-0.5 h-6 rounded-full"
+              style={{ background: "rgba(249,115,22,0.4)" }}
+              animate={{ scaleY: [1, 0.4, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
           </motion.div>
+
         </div>
       </div>
     </motion.main>
